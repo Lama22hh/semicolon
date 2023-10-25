@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488032157491",
+    "project_id": "semicolon-a0f08",
+    "storage_bucket": "semicolon-a0f08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488032157491:android:85922b08f8e33a02bec846",
+        "android_client_info": {
+          "package_name": "com.mycompany.semcolom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc3TVgHu1GFX7CaOTEQSiJeLuDZfcIiaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
