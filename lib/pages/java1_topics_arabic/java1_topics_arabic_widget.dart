@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'java1_topics_arabic_model.dart';
 export 'java1_topics_arabic_model.dart';
 
@@ -52,103 +53,94 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
+          preferredSize: Size.fromHeight(150),
           child: AppBar(
             backgroundColor: Color(0xFF0776B3),
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(-0.00, 0.00),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Flexible(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                flex: 6,
-                                child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'edexu5s3' /* رجوع */,
-                                      ),
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                          ),
-                                    ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(1.00, 0.00),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'edexu5s3' /* رجوع */,
                                   ),
-                                ),
-                              ),
-                              Flexible(
-                                child: Align(
-                                  alignment: AlignmentDirectional(1.00, -1.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      icon: Icon(
-                                        Icons.arrow_forward_rounded,
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: 'Outfit',
                                         color: Colors.white,
-                                        size: 30.0,
+                                        fontSize: 16,
                                       ),
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                            'subjectsSelection_arabic');
-                                      },
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              child: Align(
+                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 50,
+                                    icon: Icon(
+                                      Icons.arrow_forward_rounded,
+                                      color: Colors.white,
+                                      size: 30,
                                     ),
+                                    onPressed: () async {
+                                      context.pushNamed(
+                                          'subjectsSelection_arabic');
+                                    },
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ].addToStart(SizedBox(width: 280)),
                         ),
                       ),
-                      Flexible(
-                        child: Align(
-                          alignment: AlignmentDirectional(1.00, 0.00),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                '0f7uoqp1' /* المواضيع */,
-                              ),
-                              textAlign: TextAlign.end,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Colors.white,
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                      Align(
+                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              '0f7uoqp1' /* المواضيع */,
                             ),
+                            textAlign: TextAlign.end,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                       ),
@@ -159,7 +151,7 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2.0,
+            elevation: 2,
           ),
         ),
         body: SafeArea(
@@ -172,7 +164,7 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                       shape: BoxShape.rectangle,
@@ -182,20 +174,44 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor: Color(0xFFE9F8FF),
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.keyboard_double_arrow_left,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed('Q_V_D_A');
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'yejq101a' /* Button */,
+                              ),
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              options: FFButtonOptions(
+                                width: 80,
+                                height: 40,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                color: Color(0xFFE9F8FF),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 0,
+                                borderSide: BorderSide(
+                                  color: Color(0xFFE9F8FF),
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                         Align(
                           alignment: AlignmentDirectional(1.00, 0.00),
@@ -208,64 +224,95 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 20.0,
+                                  color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
                         ),
                       ]
-                          .divide(SizedBox(width: 90.0))
-                          .addToStart(SizedBox(width: 25.0)),
+                          .divide(SizedBox(width: 9))
+                          .addToStart(SizedBox(width: 25))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Color(0xFFE9F8FF),
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.keyboard_double_arrow_left,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '43fdyt7h' /* 2-Data type */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w500,
+                    child: Align(
+                      alignment: AlignmentDirectional(-0.00, 0.00),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.00, 0.00),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed('Q_V_A_A_2');
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'z3cf7uiv' /* Button */,
                                 ),
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                                options: FFButtonOptions(
+                                  width: 80,
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0xFFE9F8FF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE9F8FF),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ]
-                          .divide(SizedBox(width: 90.0))
-                          .addToStart(SizedBox(width: 25.0)),
+                          Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '43fdyt7h' /* 2-Data type */,
+                              ),
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ]
+                            .divide(SizedBox(width: 89))
+                            .addToEnd(SizedBox(width: 12)),
+                      ),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                     ),
@@ -275,22 +322,43 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: FlutterFlowIconButton(
-                              borderColor: Color(0xFFE9F8FF),
-                              borderRadius: 12.0,
-                              borderWidth: 1.0,
-                              buttonSize: 40.0,
-                              fillColor: Color(0xFFE9F8FF),
-                              icon: Icon(
-                                Icons.keyboard_double_arrow_left,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 30.0,
+                          Flexible(
+                            child: Align(
+                              alignment: AlignmentDirectional(-0.00, 0.00),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed('Q_V_A_A_3');
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'r3ixvc5a' /* Button */,
+                                ),
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                                options: FFButtonOptions(
+                                  width: 80,
+                                  height: 40,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 24, 0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
+                                  color: Color(0xFFE9F8FF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
                             ),
                           ),
                           Align(
@@ -304,20 +372,22 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 20.0,
+                                    color: Colors.black,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),
                         ]
-                            .divide(SizedBox(width: 90.0))
-                            .addToStart(SizedBox(width: 25.0)),
+                            .divide(SizedBox(width: 130))
+                            .addToStart(SizedBox(width: 25))
+                            .addToEnd(SizedBox(width: 12)),
                       ),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                     ),
@@ -325,21 +395,44 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor:
-                              FlutterFlowTheme.of(context).customColor3,
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.keyboard_double_arrow_left,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed('Q_V_A_A_4');
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'yqan8wa7' /* Button */,
+                              ),
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              options: FFButtonOptions(
+                                width: 80,
+                                height: 40,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                color: Color(0xFFE9F8FF),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                         Align(
                           alignment: AlignmentDirectional(0.00, 0.00),
@@ -352,19 +445,21 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 20.0,
+                                  color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
                         ),
                       ]
-                          .divide(SizedBox(width: 90.0))
-                          .addToStart(SizedBox(width: 25.0)),
+                          .divide(SizedBox(width: 130))
+                          .addToStart(SizedBox(width: 25))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                     ),
@@ -372,21 +467,44 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor:
-                              FlutterFlowTheme.of(context).customColor3,
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.keyboard_double_arrow_left,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed('Q_V_A_A_5');
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'nf79udfr' /* Button */,
+                              ),
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              options: FFButtonOptions(
+                                width: 80,
+                                height: 40,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                color: Color(0xFFE9F8FF),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                         Align(
                           alignment: AlignmentDirectional(0.00, 0.00),
@@ -399,19 +517,21 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 20.0,
+                                  color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
                         ),
                       ]
-                          .divide(SizedBox(width: 90.0))
-                          .addToStart(SizedBox(width: 25.0)),
+                          .divide(SizedBox(width: 30))
+                          .addToStart(SizedBox(width: 25))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 66.0,
+                    height: 66,
                     decoration: BoxDecoration(
                       color: Color(0xFFE9F8FF),
                     ),
@@ -419,20 +539,44 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor: Color(0xFFE9F8FF),
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.keyboard_double_arrow_left,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(-0.00, 0.00),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed('Q_V_A_A_6');
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'pcl1o080' /* Button */,
+                              ),
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: Colors.black,
+                                size: 15,
+                              ),
+                              options: FFButtonOptions(
+                                width: 80,
+                                height: 40,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                color: Color(0xFFE9F8FF),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                         Align(
                           alignment: AlignmentDirectional(0.00, 0.00),
@@ -444,19 +588,19 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 20.0,
+                                  color: Colors.black,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
                         ),
                       ]
-                          .divide(SizedBox(width: 90.0))
-                          .addToStart(SizedBox(width: 30.0)),
+                          .divide(SizedBox(width: 130))
+                          .addToStart(SizedBox(width: 30))
+                          .addToEnd(SizedBox(width: 12)),
                     ),
                   ),
-                ]
-                    .divide(SizedBox(height: 20.0))
-                    .addToStart(SizedBox(height: 90.0)),
+                ].divide(SizedBox(height: 20)).addToStart(SizedBox(height: 90)),
               ),
             ],
           ),
@@ -465,3 +609,4 @@ class _Java1TopicsArabicWidgetState extends State<Java1TopicsArabicWidget> {
     );
   }
 }
+
