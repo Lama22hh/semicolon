@@ -1,4 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
+  import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'sign_up_page_model.dart';
 export 'sign_up_page_model.dart';
 
@@ -30,17 +31,11 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
     _model = createModel(context, () => SignUpPageModel());
 
     _model.fullNameTextFieldController ??= TextEditingController();
-    _model.fullNameTextFieldFocusNode ??= FocusNode();
     _model.userNameTextFieldController ??= TextEditingController();
-    _model.userNameTextFieldFocusNode ??= FocusNode();
     _model.phoneNumberTextFieldController ??= TextEditingController();
-    _model.phoneNumberTextFieldFocusNode ??= FocusNode();
     _model.emailTextFieldController ??= TextEditingController();
-    _model.emailTextFieldFocusNode ??= FocusNode();
     _model.passwordTextFieldController ??= TextEditingController();
-    _model.passwordTextFieldFocusNode ??= FocusNode();
     _model.rePasswordTextFieldController ??= TextEditingController();
-    _model.rePasswordTextFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -52,15 +47,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -159,7 +145,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
               children: [
                 Form(
                   key: _model.formKey,
-                  autovalidateMode: AutovalidateMode.disabled,
+                  autovalidateMode: AutovalidateMode.always,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -188,7 +174,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.fullNameTextFieldController,
-                              focusNode: _model.fullNameTextFieldFocusNode,
                               autofocus: true,
                               textCapitalization: TextCapitalization.none,
                               obscureText: false,
@@ -272,7 +257,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.userNameTextFieldController,
-                              focusNode: _model.userNameTextFieldFocusNode,
                               autofocus: true,
                               textCapitalization: TextCapitalization.none,
                               obscureText: false,
@@ -356,7 +340,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.phoneNumberTextFieldController,
-                              focusNode: _model.phoneNumberTextFieldFocusNode,
                               autofocus: true,
                               textCapitalization: TextCapitalization.none,
                               obscureText: false,
@@ -444,7 +427,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.emailTextFieldController,
-                              focusNode: _model.emailTextFieldFocusNode,
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -526,7 +508,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.passwordTextFieldController,
-                              focusNode: _model.passwordTextFieldFocusNode,
                               autofocus: true,
                               obscureText: !_model.passwordTextFieldVisibility,
                               decoration: InputDecoration(
@@ -623,7 +604,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             width: 320.0,
                             child: TextFormField(
                               controller: _model.rePasswordTextFieldController,
-                              focusNode: _model.rePasswordTextFieldFocusNode,
                               autofocus: true,
                               textCapitalization: TextCapitalization.none,
                               obscureText:
