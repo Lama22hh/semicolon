@@ -1,4 +1,3 @@
-
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -322,8 +321,8 @@ class _QVAA2WidgetState extends State<QVAA2Widget> {
                           child: Align(
                             alignment: AlignmentDirectional(-0.00, 0.00),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed('article2');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'npksyx7w' /* Button */,
