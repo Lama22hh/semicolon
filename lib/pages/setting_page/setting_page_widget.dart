@@ -509,41 +509,41 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                     ),
                   ),
                 ),
-                FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed(
-                      'SplashPage',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
-                        ),
-                      },
-                    );
-                  },
-                  text: FFLocalizations.of(context).getText(
-                    'xv7n3c6x' /* تسجيل الخروج  */,
-                  ),
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).error,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
+                // Generated code for this Button Widget...
+FFButtonWidget(
+  onPressed: () async {
+    context.pushNamed(
+      'SplashPage',
+      extra: <String, dynamic>{
+        kTransitionInfoKey: TransitionInfo(
+          hasTransition: true,
+          transitionType: PageTransitionType.fade,
+          duration: Duration(milliseconds: 0),
+        ),
+      },
+    );
+  },
+  text: FFLocalizations.of(context).getText(
+    'xv7n3c6x' /* تسجيل الخروج  */,
+  ),
+  options: FFButtonOptions(
+    height: 40.0,
+    padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+    color: Color(0xFFF72A36),
+    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+          fontFamily: 'Readex Pro',
+          color: Colors.white,
+        ),
+    elevation: 3.0,
+    borderSide: BorderSide(
+      color: Colors.transparent,
+      width: 1.0,
+    ),
+    borderRadius: BorderRadius.circular(8.0),
+  ),
+)
+
               ].divide(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 50.0)),
             ),
           ),
