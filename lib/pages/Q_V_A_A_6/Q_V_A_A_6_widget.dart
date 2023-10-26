@@ -321,8 +321,8 @@ class _QVAA6WidgetState extends State<QVAA6Widget> {
                           child: Align(
                             alignment: AlignmentDirectional(-0.00, 0.00),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed('article6');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'f3z5boo4' /* Button */,
@@ -458,4 +458,3 @@ class _QVAA6WidgetState extends State<QVAA6Widget> {
     );
   }
 }
-
