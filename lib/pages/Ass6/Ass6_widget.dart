@@ -181,7 +181,7 @@ class _Ass6WidgetState extends State<Ass6Widget> {
                               FFLocalizations.of(context).getText(
                                 '8dx60nx2' /* السؤال: اكتب برنامجًا لإيجاد ق... */,
                               ),
-                              textAlign: TextAlign.center,
+                              textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -236,7 +236,7 @@ class _Ass6WidgetState extends State<Ass6Widget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'a7kupufm' /* الجواب هنا... */,
+                                  'a7kupufm' /* الاجابة هنا... */,
                                 ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
