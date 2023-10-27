@@ -31,4 +31,3 @@ class Ass4Model extends FlutterFlowModel<Ass4Widget> {
 
   /// Additional helper methods are added here.
 }
-
