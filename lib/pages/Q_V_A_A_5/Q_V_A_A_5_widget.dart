@@ -177,7 +177,7 @@ class _QVAA5WidgetState extends State<QVAA5Widget> {
                             alignment: AlignmentDirectional(-0.00, 0.00),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed('Ass5');
+                                context.pushNamed('quizes5');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'wvfycu7t' /* Button */,
@@ -249,8 +249,8 @@ class _QVAA5WidgetState extends State<QVAA5Widget> {
                             child: Align(
                               alignment: AlignmentDirectional(-0.00, 0.00),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Video5');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'mi5pmio5' /* Button */,
