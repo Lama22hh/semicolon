@@ -241,7 +241,7 @@ class _Ass3WidgetState extends State<Ass3Widget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'i9ah20pp' /* Label here... */,
+                                  'i9ah20pp' /* الاجابة هنا... */,
                                 ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
