@@ -176,18 +176,18 @@ class _Ass4WidgetState extends State<Ass4Widget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-2.00, 0.00),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'ti8ryahg' /* السؤال: اكتب برنامج جافا لفرز ... */,
+                                'ti8ryahg' /* السؤال:اكتب برنامج جافا لفرز م... */,
                               ),
-                              textAlign: TextAlign.justify,
+                              textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.black,
-                                    fontSize: 13,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -236,7 +236,7 @@ class _Ass4WidgetState extends State<Ass4Widget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'hchf5wd3' /* الجواب هنا... */,
+                                  'hchf5wd3' /* الاجابة هنا... */,
                                 ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
@@ -325,4 +325,5 @@ class _Ass4WidgetState extends State<Ass4Widget> {
     );
   }
 }
+
 
