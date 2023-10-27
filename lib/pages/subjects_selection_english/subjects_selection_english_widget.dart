@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'subjects_selection_english_model.dart';
 export 'subjects_selection_english_model.dart';
 
@@ -55,44 +56,39 @@ class _SubjectsSelectionEnglishWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
+          preferredSize: Size.fromHeight(100),
           child: AppBar(
             backgroundColor: Color(0xFF0776B3),
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
-              title: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'oo64v9kb' /* Choose the course to Start lea... */,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context)
-                            .headlineMedium
-                            .override(
-                              fontFamily: 'Outfit',
-                              color: Colors.white,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+              title: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 20, 24, 30),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'oo64v9kb' /* Choose the course to Start lea... */,
                       ),
+                      textAlign: TextAlign.center,
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Outfit',
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                              ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2.0,
+            elevation: 2,
           ),
         ),
         body: SafeArea(
@@ -103,7 +99,7 @@ class _SubjectsSelectionEnglishWidgetState
             children: [
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -111,6 +107,21 @@ class _SubjectsSelectionEnglishWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    FlutterFlowIconButton(
+                      borderColor: Color(0xFFE9F8FF),
+                      borderRadius: 12,
+                      borderWidth: 1,
+                      buttonSize: 40,
+                      fillColor: Color(0xFFE9F8FF),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).customColor4,
+                        size: 24,
+                      ),
+                      onPressed: () async {
+                        context.pushNamed('Java1Topics_english');
+                      },
+                    ),
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(
@@ -120,32 +131,17 @@ class _SubjectsSelectionEnglishWidgetState
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 20.0,
+                              fontSize: 20,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
-                    ),
-                    FlutterFlowIconButton(
-                      borderColor: Color(0xFFE9F8FF),
-                      borderRadius: 12.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      fillColor: Color(0xFFE9F8FF),
-                      icon: Icon(
-                        Icons.double_arrow_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        context.pushNamed('Java1Topics_english');
-                      },
                     ),
                   ],
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -157,35 +153,35 @@ class _SubjectsSelectionEnglishWidgetState
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),
+                        child: FlutterFlowIconButton(
+                          borderColor: Color(0xFFE9F8FF),
+                          borderRadius: 12,
+                          borderWidth: 1,
+                          buttonSize: 40,
+                          fillColor: Color(0xFFE9F8FF),
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: FlutterFlowTheme.of(context).customColor4,
+                            size: 24,
+                          ),
+                          onPressed: () {
+                            print('IconButton pressed ...');
+                          },
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'gsl1qcvp' /* Course in Java2 */,
+                            'gsl1qcvp' /* Course in Java2               ... */,
                           ),
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 20.0,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
-                        child: FlutterFlowIconButton(
-                          borderColor: Color(0xFFE9F8FF),
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.double_arrow_rounded,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                       ),
                     ],
@@ -194,7 +190,7 @@ class _SubjectsSelectionEnglishWidgetState
               ),
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -202,6 +198,21 @@ class _SubjectsSelectionEnglishWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    FlutterFlowIconButton(
+                      borderColor: Color(0xFFE9F8FF),
+                      borderRadius: 12,
+                      borderWidth: 1,
+                      buttonSize: 40,
+                      fillColor: Color(0xFFE9F8FF),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24,
+                      ),
+                      onPressed: () {
+                        print('IconButton pressed ...');
+                      },
+                    ),
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(
@@ -211,25 +222,10 @@ class _SubjectsSelectionEnglishWidgetState
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 20.0,
+                              fontSize: 20,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
-                    ),
-                    FlutterFlowIconButton(
-                      borderColor: Color(0xFFE9F8FF),
-                      borderRadius: 12.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      fillColor: Color(0xFFE9F8FF),
-                      icon: Icon(
-                        Icons.double_arrow_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
                     ),
                   ],
                 ),
