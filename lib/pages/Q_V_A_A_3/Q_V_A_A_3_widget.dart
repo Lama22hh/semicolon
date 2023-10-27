@@ -176,8 +176,17 @@ class _QVAA3WidgetState extends State<QVAA3Widget> {
                           child: Align(
                             alignment: AlignmentDirectional(-0.00, 0.00),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'quizes3',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
                               },
                               text: FFLocalizations.of(context).getText(
                                 'ls802z8m' /* Button */,
@@ -249,8 +258,8 @@ class _QVAA3WidgetState extends State<QVAA3Widget> {
                             child: Align(
                               alignment: AlignmentDirectional(-0.00, 0.00),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Video3');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   '4nnrzvkx' /* Button */,
