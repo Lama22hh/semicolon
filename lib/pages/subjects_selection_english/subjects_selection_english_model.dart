@@ -27,3 +27,4 @@ class SubjectsSelectionEnglishModel
 
   /// Additional helper methods are added here.
 }
+
