@@ -178,7 +178,7 @@ class _QVDAWidgetState extends State<QVDAWidget> {
                             child: FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed(
-                                  'Quizes',
+                                  'quizes1',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -258,8 +258,8 @@ class _QVDAWidgetState extends State<QVDAWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(-0.00, 0.00),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Video1');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'acidxzdv' /* Button */,
