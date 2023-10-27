@@ -25,4 +25,3 @@ class QVDAModel extends FlutterFlowModel<QVDAWidget> {
 
   /// Additional helper methods are added here.
 }
-
