@@ -187,7 +187,7 @@ class _Ass5WidgetState extends State<Ass5Widget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.black,
-                                    fontSize: 12,
+                                    fontSize: 13,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -236,7 +236,7 @@ class _Ass5WidgetState extends State<Ass5Widget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  '365e2l01' /* الجواب هنا... */,
+                                  '365e2l01' /* الاجابة هنا... */,
                                 ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
@@ -325,4 +325,5 @@ class _Ass5WidgetState extends State<Ass5Widget> {
     );
   }
 }
+
 
