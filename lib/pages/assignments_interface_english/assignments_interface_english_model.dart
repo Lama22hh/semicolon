@@ -27,3 +27,4 @@ class AssignmentsInterfaceEnglishModel
 
   /// Additional helper methods are added here.
 }
+
