@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'assignments_interface_english_model.dart';
 export 'assignments_interface_english_model.dart';
 
@@ -55,37 +56,36 @@ class _AssignmentsInterfaceEnglishWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
+          preferredSize: Size.fromHeight(100),
           child: AppBar(
             backgroundColor: Color(0xFF0776B3),
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 50.0,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 50,
                               icon: Icon(
                                 Icons.arrow_back_rounded,
                                 color: Colors.white,
-                                size: 30.0,
+                                size: 30,
                               ),
                               onPressed: () async {
                                 context.pop();
@@ -93,8 +93,7 @@ class _AssignmentsInterfaceEnglishWidgetState
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                4.0, 0.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '0hxq3xta' /* Back */,
@@ -104,7 +103,7 @@ class _AssignmentsInterfaceEnglishWidgetState
                                   .override(
                                     fontFamily: 'Outfit',
                                     color: Colors.white,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                   ),
                             ),
                           ),
@@ -114,8 +113,7 @@ class _AssignmentsInterfaceEnglishWidgetState
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'b0auu89y' /* Assignments */,
@@ -125,7 +123,7 @@ class _AssignmentsInterfaceEnglishWidgetState
                               .override(
                                 fontFamily: 'Outfit',
                                 color: Colors.white,
-                                fontSize: 24.0,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -137,7 +135,7 @@ class _AssignmentsInterfaceEnglishWidgetState
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2.0,
+            elevation: 2,
           ),
         ),
         body: SafeArea(
@@ -148,7 +146,7 @@ class _AssignmentsInterfaceEnglishWidgetState
             children: [
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -156,6 +154,21 @@ class _AssignmentsInterfaceEnglishWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    FlutterFlowIconButton(
+                      borderColor: Color(0xFFE9F8FF),
+                      borderRadius: 12,
+                      borderWidth: 1,
+                      buttonSize: 40,
+                      fillColor: Color(0xFFE9F8FF),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24,
+                      ),
+                      onPressed: () {
+                        print('IconButton pressed ...');
+                      },
+                    ),
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(
@@ -165,32 +178,17 @@ class _AssignmentsInterfaceEnglishWidgetState
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 24.0,
+                              fontSize: 24,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                     ),
-                    FlutterFlowIconButton(
-                      borderColor: Color(0xFFE9F8FF),
-                      borderRadius: 12.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      fillColor: Color(0xFFE9F8FF),
-                      icon: Icon(
-                        Icons.double_arrow_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ].divide(SizedBox(width: 19.0)).around(SizedBox(width: 19.0)),
+                  ].divide(SizedBox(width: 19)).around(SizedBox(width: 19)),
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -202,6 +200,24 @@ class _AssignmentsInterfaceEnglishWidgetState
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.00, 0.00),
+                        child: FlutterFlowIconButton(
+                          borderColor: Color(0xFFE9F8FF),
+                          borderRadius: 12,
+                          borderWidth: 1,
+                          buttonSize: 40,
+                          fillColor: Color(0xFFE9F8FF),
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 24,
+                          ),
+                          onPressed: () {
+                            print('IconButton pressed ...');
+                          },
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'qseie8r5' /* Done */,
@@ -210,38 +226,18 @@ class _AssignmentsInterfaceEnglishWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 24.0,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
-                        child: FlutterFlowIconButton(
-                          borderColor: Color(0xFFE9F8FF),
-                          borderRadius: 12.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0xFFE9F8FF),
-                          icon: Icon(
-                            Icons.double_arrow_rounded,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
-                        ),
-                      ),
-                    ]
-                        .divide(SizedBox(width: 19.0))
-                        .around(SizedBox(width: 19.0)),
+                    ].divide(SizedBox(width: 19)).around(SizedBox(width: 19)),
                   ),
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 66.0,
+                height: 66,
                 decoration: BoxDecoration(
                   color: Color(0xFFE9F8FF),
                 ),
@@ -249,6 +245,21 @@ class _AssignmentsInterfaceEnglishWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    FlutterFlowIconButton(
+                      borderColor: FlutterFlowTheme.of(context).customColor3,
+                      borderRadius: 12,
+                      borderWidth: 1,
+                      buttonSize: 40,
+                      fillColor: Color(0xFFE9F8FF),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24,
+                      ),
+                      onPressed: () {
+                        print('IconButton pressed ...');
+                      },
+                    ),
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Text(
@@ -258,27 +269,12 @@ class _AssignmentsInterfaceEnglishWidgetState
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 24.0,
+                              fontSize: 24,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                     ),
-                    FlutterFlowIconButton(
-                      borderColor: FlutterFlowTheme.of(context).customColor3,
-                      borderRadius: 12.0,
-                      borderWidth: 1.0,
-                      buttonSize: 40.0,
-                      fillColor: Color(0xFFE9F8FF),
-                      icon: Icon(
-                        Icons.double_arrow_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ].divide(SizedBox(width: 19.0)).around(SizedBox(width: 19.0)),
+                  ].divide(SizedBox(width: 19)).around(SizedBox(width: 19)),
                 ),
               ),
             ],
