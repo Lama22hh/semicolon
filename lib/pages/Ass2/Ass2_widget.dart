@@ -31,7 +31,7 @@ class _Ass2WidgetState extends State<Ass2Widget> {
     _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController?.text = FFLocalizations.of(context).getText(
-            '6cxol5xc' /* هنا */,
+            '6cxol5xc' /*  */,
           );
         }));
   }
@@ -241,7 +241,7 @@ class _Ass2WidgetState extends State<Ass2Widget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'wnsixlcm' /* Label here... */,
+                                  'wnsixlcm' /* الاجابة هنا... */,
                                 ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
@@ -330,4 +330,3 @@ class _Ass2WidgetState extends State<Ass2Widget> {
     );
   }
 }
-
