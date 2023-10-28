@@ -231,9 +231,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                                   .fromSTEB(0, 0, 0, 0),
                                               iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 0, 0, 0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFF0776B3),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
@@ -305,8 +303,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                       alignment:
                                           AlignmentDirectional(-0.00, 0.00),
                                       child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed('InformationPage');
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
@@ -347,17 +345,20 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                   ),
                                   Align(
                                     alignment: AlignmentDirectional(1.00, 0.00),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'hj9mivxn' /* المعلومات الشخصية  */,
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Text(
+                                        key: ValueKey(currentPhoneNumber),
+                                        FFLocalizations.of(context).getText(
+                                          'hj9mivxn' /* المعلومات الشخصية  */,
+                                        ),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.black,
-                                          ),
                                     ),
                                   ),
                                 ]
@@ -441,17 +442,21 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                   ),
                                   Align(
                                     alignment: AlignmentDirectional(1.00, 0.00),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'uwzjga2t' /* تغير كلمة المرور */,
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Text(
+                                        key: ValueKey(valueOrDefault(
+                                            currentUserDocument?.password, '')),
+                                        FFLocalizations.of(context).getText(
+                                          'uwzjga2t' /* تغير كلمة المرور */,
+                                        ),
+                                        textAlign: TextAlign.end,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      textAlign: TextAlign.end,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.black,
-                                          ),
                                     ),
                                   ),
                                 ]
