@@ -52,3 +52,5 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
 
   /// Additional helper methods are added here.
 }
+
+
