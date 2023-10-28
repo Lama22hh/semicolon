@@ -23,12 +23,14 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'kmt2074c' /* Field is required */,
+        'jnv6jbmd' /* ادخل المطلوب */,
       );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Has to be a valid email address.';
+      return FFLocalizations.of(context).getText(
+        'nikglamv' /* ادخل الايميل بشكل صحيح */,
+      );
     }
     return null;
   }
