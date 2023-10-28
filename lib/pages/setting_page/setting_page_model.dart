@@ -15,13 +15,12 @@ import 'package:provider/provider.dart';
 class SettingPageModel extends FlutterFlowModel<SettingPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  
   final unfocusNode = FocusNode();
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
-    
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
