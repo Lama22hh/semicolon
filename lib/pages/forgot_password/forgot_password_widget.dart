@@ -99,7 +99,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '8d0qye9i' /* Back */,
+                                '8d0qye9i' /* الرجوع  */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
