@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'sign_in_page_model.dart';
 export 'sign_in_page_model.dart';
 
@@ -29,6 +30,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
     _model.signInEmailOrUserNameArController ??= TextEditingController();
     _model.signInEmailOrUserNameArFocusNode ??= FocusNode();
+
     _model.signInePasswordArController ??= TextEditingController();
     _model.signInePasswordArFocusNode ??= FocusNode();
   }
@@ -51,6 +53,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
@@ -62,7 +66,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Align(
-              alignment: AlignmentDirectional(-1.00, -1.00),
+              alignment: AlignmentDirectional(-1.0, -1.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -146,14 +150,14 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
               key: _model.formKey,
               autovalidateMode: AutovalidateMode.always,
               child: Align(
-                alignment: AlignmentDirectional(-0.70, 0.00),
+                alignment: AlignmentDirectional(-0.7, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-0.40, 0.00),
+                      alignment: AlignmentDirectional(-0.4, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'weq1ppyv' /* اسم المستخدم او البريد الالكتر... */,
@@ -232,7 +236,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.75, 0.00),
+                      alignment: AlignmentDirectional(-0.75, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '6sljzkjb' /* كلمة المرور */,
@@ -325,7 +329,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.50, 0.00),
+                      alignment: AlignmentDirectional(-0.5, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -376,7 +380,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         }
 
                         context.pushNamedAuth(
-                          'subjectsSelection_arabic',
+                          'CoursesPage',
                           context.mounted,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
@@ -418,7 +422,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -452,7 +456,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(2.00, 0.00),
+                          alignment: AlignmentDirectional(2.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'ffoeemde' /* Semicolon  جديد في  */,
