@@ -46,16 +46,6 @@ class UserAccountRecord extends FirestoreRecord {
   String get profileImage => _profileImage ?? '';
   bool hasProfileImage() => _profileImage != null;
 
-  // "display_name" field.
-  String? _displayName;
-  String get displayName => _displayName ?? '';
-  bool hasDisplayName() => _displayName != null;
-
-  // "photo_url" field.
-  String? _photoUrl;
-  String get photoUrl => _photoUrl ?? '';
-  bool hasPhotoUrl() => _photoUrl != null;
-
   // "uid" field.
   String? _uid;
   String get uid => _uid ?? '';
@@ -66,6 +56,16 @@ class UserAccountRecord extends FirestoreRecord {
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
 
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
+
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
   void _initializeFields() {
     _fullName = snapshotData['full_name'] as String?;
     _password = snapshotData['password'] as String?;
@@ -73,10 +73,10 @@ class UserAccountRecord extends FirestoreRecord {
     _userName = snapshotData['user_name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _profileImage = snapshotData['profile_image'] as String?;
-    _displayName = snapshotData['display_name'] as String?;
-    _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
+    _photoUrl = snapshotData['photo_url'] as String?;
+    _displayName = snapshotData['display_name'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -120,10 +120,10 @@ Map<String, dynamic> createUserAccountRecordData({
   String? userName,
   String? phoneNumber,
   String? profileImage,
-  String? displayName,
-  String? photoUrl,
   String? uid,
   DateTime? createdTime,
+  String? photoUrl,
+  String? displayName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -133,10 +133,10 @@ Map<String, dynamic> createUserAccountRecordData({
       'user_name': userName,
       'phone_number': phoneNumber,
       'profile_image': profileImage,
-      'display_name': displayName,
-      'photo_url': photoUrl,
       'uid': uid,
       'created_time': createdTime,
+      'photo_url': photoUrl,
+      'display_name': displayName,
     }.withoutNulls,
   );
 
@@ -154,10 +154,10 @@ class UserAccountRecordDocumentEquality implements Equality<UserAccountRecord> {
         e1?.userName == e2?.userName &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.profileImage == e2?.profileImage &&
-        e1?.displayName == e2?.displayName &&
-        e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
-        e1?.createdTime == e2?.createdTime;
+        e1?.createdTime == e2?.createdTime &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.displayName == e2?.displayName;
   }
 
   @override
@@ -168,10 +168,10 @@ class UserAccountRecordDocumentEquality implements Equality<UserAccountRecord> {
         e?.userName,
         e?.phoneNumber,
         e?.profileImage,
-        e?.displayName,
-        e?.photoUrl,
         e?.uid,
-        e?.createdTime
+        e?.createdTime,
+        e?.photoUrl,
+        e?.displayName
       ]);
 
   @override
