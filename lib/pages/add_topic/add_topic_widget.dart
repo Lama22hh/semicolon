@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'add_topic_model.dart';
 export 'add_topic_model.dart';
 
@@ -64,7 +65,7 @@ class _AddTopicWidgetState extends State<AddTopicWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
+          preferredSize: Size.fromHeight(120.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).customColor1,
             automaticallyImplyLeading: false,
@@ -353,4 +354,5 @@ class _AddTopicWidgetState extends State<AddTopicWidget> {
     );
   }
 }
+
 
