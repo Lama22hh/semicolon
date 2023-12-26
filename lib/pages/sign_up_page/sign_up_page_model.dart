@@ -17,6 +17,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for FullNameTextField widget.
+  FocusNode? fullNameTextFieldFocusNode;
   TextEditingController? fullNameTextFieldController;
   String? Function(BuildContext, String?)? fullNameTextFieldControllerValidator;
   String? _fullNameTextFieldControllerValidator(
@@ -31,6 +32,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   }
 
   // State field(s) for UserNameTextField widget.
+  FocusNode? userNameTextFieldFocusNode;
   TextEditingController? userNameTextFieldController;
   String? Function(BuildContext, String?)? userNameTextFieldControllerValidator;
   String? _userNameTextFieldControllerValidator(
@@ -50,6 +52,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   }
 
   // State field(s) for PhoneNumberTextField widget.
+  FocusNode? phoneNumberTextFieldFocusNode;
   TextEditingController? phoneNumberTextFieldController;
   String? Function(BuildContext, String?)?
       phoneNumberTextFieldControllerValidator;
@@ -70,6 +73,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   }
 
   // State field(s) for EmailTextField widget.
+  FocusNode? emailTextFieldFocusNode;
   TextEditingController? emailTextFieldController;
   String? Function(BuildContext, String?)? emailTextFieldControllerValidator;
   String? _emailTextFieldControllerValidator(
@@ -89,6 +93,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   }
 
   // State field(s) for PasswordTextField widget.
+  FocusNode? passwordTextFieldFocusNode;
   TextEditingController? passwordTextFieldController;
   late bool passwordTextFieldVisibility;
   String? Function(BuildContext, String?)? passwordTextFieldControllerValidator;
@@ -116,6 +121,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   }
 
   // State field(s) for RePasswordTextField widget.
+  FocusNode? rePasswordTextFieldFocusNode;
   TextEditingController? rePasswordTextFieldController;
   late bool rePasswordTextFieldVisibility;
   String? Function(BuildContext, String?)?
@@ -163,11 +169,22 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    fullNameTextFieldFocusNode?.dispose();
     fullNameTextFieldController?.dispose();
+
+    userNameTextFieldFocusNode?.dispose();
     userNameTextFieldController?.dispose();
+
+    phoneNumberTextFieldFocusNode?.dispose();
     phoneNumberTextFieldController?.dispose();
+
+    emailTextFieldFocusNode?.dispose();
     emailTextFieldController?.dispose();
+
+    passwordTextFieldFocusNode?.dispose();
     passwordTextFieldController?.dispose();
+
+    rePasswordTextFieldFocusNode?.dispose();
     rePasswordTextFieldController?.dispose();
   }
 
@@ -175,4 +192,3 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   /// Additional helper methods are added here.
 }
-
