@@ -1,3 +1,18 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "Lessons",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "nameOfCourse",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "nameOfLesson",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }
