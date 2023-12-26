@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'change_password_page_model.dart';
 export 'change_password_page_model.dart';
 
@@ -30,8 +29,10 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
 
     _model.currPassController ??= TextEditingController();
     _model.currPassFocusNode ??= FocusNode();
+
     _model.newPassController ??= TextEditingController();
     _model.newPassFocusNode ??= FocusNode();
+
     _model.newPass2Controller ??= TextEditingController();
     _model.newPass2FocusNode ??= FocusNode();
   }
@@ -54,6 +55,8 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -62,14 +65,14 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(150),
+          preferredSize: Size.fromHeight(150.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).customColor1,
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -79,16 +82,17 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 50,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
                             icon: Icon(
                               Icons.arrow_back_rounded,
                               color: Colors.white,
-                              size: 30,
+                              size: 30.0,
                             ),
                             onPressed: () async {
                               context.pop();
@@ -96,7 +100,8 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '3tgayejf' /* الرجوع */,
@@ -106,14 +111,15 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                 .override(
                                   fontFamily: 'Outfit',
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                 ),
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '3o8sdf8c' /* تغيير كلمة المرور */,
@@ -123,7 +129,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             .override(
                               fontFamily: 'Outfit',
                               color: Colors.white,
-                              fontSize: 22,
+                              fontSize: 22.0,
                             ),
                       ),
                     ),
@@ -133,7 +139,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2,
+            elevation: 2.0,
           ),
         ),
         body: SafeArea(
@@ -145,7 +151,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
               if (_model.newPassController.text !=
                   _model.newPass2Controller.text)
                 Container(
-                  width: 390,
+                  width: 390.0,
                   child: Form(
                     key: _model.formKey,
                     autovalidateMode: AutovalidateMode.always,
@@ -155,7 +161,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-0.70, 0.00),
+                            alignment: AlignmentDirectional(-0.7, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '49spnykm' /* كلمة المرور الحالية: */,
@@ -165,15 +171,16 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   .headlineMedium
                                   .override(
                                     fontFamily: 'Outfit',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
                             child: Container(
-                              width: 320,
+                              width: 320.0,
                               child: TextFormField(
                                 controller: _model.currPassController,
                                 focusNode: _model.currPassFocusNode,
@@ -193,7 +200,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                       color: Color(0xFF0776B3),
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -201,21 +208,21 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                           .customColor4,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
@@ -239,7 +246,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-0.70, 0.00),
+                            alignment: AlignmentDirectional(-0.7, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'r2os09nt' /* كلمة المرور الجديدة: */,
@@ -249,15 +256,16 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   .headlineMedium
                                   .override(
                                     fontFamily: 'Outfit',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
                             child: Container(
-                              width: 320,
+                              width: 320.0,
                               child: TextFormField(
                                 controller: _model.newPassController,
                                 focusNode: _model.newPassFocusNode,
@@ -278,7 +286,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                           .customColor1,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -286,21 +294,21 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                           .customColor4,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
@@ -324,10 +332,10 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'px2wep7i' /* * أن لا يقل عن 8 احرف انجليزية */,
@@ -338,10 +346,10 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   '22mkvd96' /* * أن يحتوي على حرف كبير واحد ع... */,
@@ -351,10 +359,10 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   '2x655sw1' /* * أن يحتوي على حرف صغير واحد ع... */,
@@ -364,10 +372,10 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   '83t8ddh5' /* * أن يحتوي على رقم واحد على ال... */,
@@ -377,7 +385,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-0.70, 0.00),
+                            alignment: AlignmentDirectional(-0.7, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'ytp0umub' /* تأكيد كلمة المرور الجديدة: */,
@@ -386,15 +394,16 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   .headlineMedium
                                   .override(
                                     fontFamily: 'Outfit',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
                             child: Container(
-                              width: 320,
+                              width: 320.0,
                               child: TextFormField(
                                 controller: _model.newPass2Controller,
                                 focusNode: _model.newPass2FocusNode,
@@ -415,7 +424,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                           .customColor1,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -423,21 +432,21 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                           .customColor4,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 2.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
@@ -468,38 +477,38 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                               'c7v7ua3j' /* حفظ التغييرات */,
                             ),
                             options: FFButtonOptions(
-                              width: 149,
-                              height: 60,
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                              iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 80),
+                              width: 149.0,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 80.0),
                               color: FlutterFlowTheme.of(context).customColor1,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
-                                    fontSize: 24,
+                                    fontSize: 24.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 3,
+                              elevation: 3.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ]
-                            .divide(SizedBox(height: 8))
-                            .addToStart(SizedBox(height: 10))
-                            .addToEnd(SizedBox(height: 10)),
+                            .divide(SizedBox(height: 8.0))
+                            .addToStart(SizedBox(height: 10.0))
+                            .addToEnd(SizedBox(height: 10.0)),
                       ),
                     ),
                   ),
                 ),
-            ].addToStart(SizedBox(height: 20)),
+            ].addToStart(SizedBox(height: 20.0)),
           ),
         ),
       ),
