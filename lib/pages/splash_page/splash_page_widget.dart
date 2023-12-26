@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+
 import 'splash_page_model.dart';
 export 'splash_page_model.dart';
 
@@ -45,6 +45,8 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFE9F8FF),
@@ -55,14 +57,21 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
           children: [
             Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/IMG_8182.png',
-                    width: 396.0,
-                    height: 462.0,
-                    fit: BoxFit.cover,
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/IMG_8182.png',
+                        width: 380.0,
+                        height: 462.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
                 Column(
@@ -70,8 +79,8 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 3.00),
-                      child: GradientText(
+                      alignment: AlignmentDirectional(0.0, 3.0),
+                      child: Text(
                         FFLocalizations.of(context).getText(
                           'kbecabcu' /* semicolon */,
                         ),
@@ -82,16 +91,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                               fontSize: 50.0,
                               fontWeight: FontWeight.bold,
                             ),
-                        colors: [
-                          FlutterFlowTheme.of(context).primary,
-                          FlutterFlowTheme.of(context).secondary
-                        ],
-                        gradientDirection: GradientDirection.ltr,
-                        gradientType: GradientType.linear,
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed(
@@ -141,3 +144,4 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
     );
   }
 }
+
