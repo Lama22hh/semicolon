@@ -50,6 +50,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -58,23 +60,24 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100),
+          preferredSize: Size.fromHeight(100.0),
           child: AppBar(
             backgroundColor: Color(0xFFE9F8FF),
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '8569bhhn' /* الاعدادات */,
@@ -85,7 +88,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                               .override(
                                 fontFamily: 'Outfit',
                                 color: Colors.black,
-                                fontSize: 30,
+                                fontSize: 30.0,
                                 fontWeight: FontWeight.w500,
                               ),
                         ),
@@ -97,7 +100,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2,
+            elevation: 2.0,
           ),
         ),
         body: SafeArea(
@@ -107,14 +110,14 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 401,
-                          height: 200,
+                          width: 401.0,
+                          height: 200.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
@@ -127,7 +130,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 30, 0),
+                                        0.0, 0.0, 30.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -136,8 +139,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                           CrossAxisAlignment.end,
                                       children: [
                                         Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
+                                          alignment:
+                                              AlignmentDirectional(-1.0, -1.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               final selectedMedia =
@@ -222,15 +225,13 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                             text: '',
                                             icon: Icon(
                                               Icons.edit,
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             options: FFButtonOptions(
-                                              width: 40,
-                                              height: 40,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 0),
+                                              width: 40.0,
+                                              height: 40.0,
+                                              padding: EdgeInsets.all(0.0),
+                                              iconPadding: EdgeInsets.all(0.0),
                                               color: Color(0xFF0776B3),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
@@ -239,21 +240,22 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                                         fontFamily:
                                                             'Readex Pro',
                                                         color: Colors.white,
+                                                        fontSize: 0.0,
                                                       ),
-                                              elevation: 3,
+                                              elevation: 3.0,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 0,
+                                                width: 0.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(200),
+                                                  BorderRadius.circular(200.0),
                                             ),
                                           ),
                                         ),
                                         AuthUserStreamWidget(
                                           builder: (context) => Container(
-                                            width: 120,
-                                            height: 120,
+                                            width: 120.0,
+                                            height: 120.0,
                                             clipBehavior: Clip.antiAlias,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
@@ -280,28 +282,27 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
-                            ].divide(SizedBox(height: 10)),
+                            ].divide(SizedBox(height: 10.0)),
                           ),
                         ),
                         Container(
-                          width: 403,
-                          height: 70,
+                          width: 403.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(1.00, 0.00),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Flexible(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           context.pushNamed('InformationPage');
@@ -313,17 +314,17 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                         icon: Icon(
                                           Icons.arrow_back,
                                           color: Colors.black,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 80,
-                                          height: 40,
+                                          width: 80.0,
+                                          height: 40.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 24, 0),
+                                                  24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFE9F8FF),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -332,19 +333,19 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.white,
                                                   ),
-                                          elevation: 0,
+                                          elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         key: ValueKey(currentPhoneNumber),
@@ -362,35 +363,34 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(width: 120))
-                                    .addToEnd(SizedBox(width: 10)),
+                                    .divide(SizedBox(width: 120.0))
+                                    .addToEnd(SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
                         ),
                         Container(
-                          width: 401,
-                          height: 70,
+                          width: 401.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(1.00, 0.00),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Flexible(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           context.pushNamed(
-                                            'ChangePasswordPage',
+                                            'changePasswordPageSecsses',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -410,17 +410,17 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                         icon: Icon(
                                           Icons.arrow_back,
                                           color: Colors.black,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 80,
-                                          height: 40,
+                                          width: 80.0,
+                                          height: 40.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 24, 0),
+                                                  24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFE9F8FF),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -429,19 +429,19 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.white,
                                                   ),
-                                          elevation: 0,
+                                          elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         key: ValueKey(valueOrDefault(
@@ -460,21 +460,21 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(width: 155))
-                                    .addToEnd(SizedBox(width: 10)),
+                                    .divide(SizedBox(width: 155.0))
+                                    .addToEnd(SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
                         ),
                         Container(
-                          width: 400,
-                          height: 70,
+                          width: 400.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -487,11 +487,11 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     'vbf3s7b8' /* English  */,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFF0776B3),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -499,12 +499,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: Colors.white,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                                 FFButtonWidget(
@@ -515,11 +515,11 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     '5ki4k8o9' /* العربية */,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFE9F8FF),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -527,12 +527,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: Color(0xFF040000),
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Color(0xFF0776B3),
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                                 Text(
@@ -547,21 +547,21 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                       ),
                                 ),
                               ]
-                                  .divide(SizedBox(width: 8))
-                                  .addToStart(SizedBox(width: 10))
-                                  .addToEnd(SizedBox(width: 20)),
+                                  .divide(SizedBox(width: 8.0))
+                                  .addToStart(SizedBox(width: 10.0))
+                                  .addToEnd(SizedBox(width: 20.0)),
                             ),
                           ),
                         ),
                         Container(
-                          width: 400,
-                          height: 70,
+                          width: 400.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -574,11 +574,11 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     'fkv9jpuk' /* غامق */,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFF0776B3),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -586,12 +586,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: Colors.white,
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                                 FFButtonWidget(
@@ -602,11 +602,11 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     'ro1mz6ue' /* فاتح */,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 40,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 0, 16, 0),
+                                        16.0, 0.0, 16.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 0),
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFE9F8FF),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -614,12 +614,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: Color(0xFF040000),
                                         ),
-                                    elevation: 3,
+                                    elevation: 3.0,
                                     borderSide: BorderSide(
                                       color: Color(0xFF0776B3),
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                                 Text(
@@ -634,34 +634,35 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                       ),
                                 ),
                               ]
-                                  .divide(SizedBox(width: 8))
-                                  .addToStart(SizedBox(width: 10))
-                                  .addToEnd(SizedBox(width: 20)),
+                                  .divide(SizedBox(width: 8.0))
+                                  .addToStart(SizedBox(width: 10.0))
+                                  .addToEnd(SizedBox(width: 20.0)),
                             ),
                           ),
                         ),
                         Container(
-                          width: 400,
-                          height: 70,
+                          width: 400.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: Color(0xFFE9F8FF),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(1.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 0.0, 0.0, 0.0),
                               child: Row(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Flexible(
                                     child: Align(
                                       alignment:
-                                          AlignmentDirectional(-0.00, 0.00),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed('DeleteAccount');
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
@@ -670,17 +671,17 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                         icon: Icon(
                                           Icons.arrow_back,
                                           color: Colors.black,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 50,
-                                          height: 40,
+                                          width: 50.0,
+                                          height: 40.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24, 0, 24, 0),
+                                                  24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 0),
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFE9F8FF),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -688,21 +689,21 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.white,
+                                                    fontSize: 0.0,
                                                   ),
-                                          elevation: 0,
+                                          elevation: 0.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(-0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '6fwpqxvb' /* حذف الحساب  */,
@@ -717,14 +718,13 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                                     ),
                                   ),
                                 ]
-                                    .divide(SizedBox(width: 180))
-                                    .addToStart(SizedBox(width: 0))
-                                    .addToEnd(SizedBox(width: 0)),
+                                    .divide(SizedBox(width: 120.0))
+                                    .addToEnd(SizedBox(width: 20.0)),
                               ),
                             ),
                           ),
                         ),
-                      ].divide(SizedBox(height: 10)),
+                      ].divide(SizedBox(height: 10.0)),
                     ),
                   ),
                 ),
@@ -745,23 +745,25 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
                     'xv7n3c6x' /* تسجيل الخروج  */,
                   ),
                   options: FFButtonOptions(
-                    height: 40,
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    height: 40.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0xFFF72A36),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
-                    elevation: 3,
+                    elevation: 3.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-              ].divide(SizedBox(height: 10)).addToEnd(SizedBox(height: 50)),
+              ].divide(SizedBox(height: 10.0)).addToEnd(SizedBox(height: 50.0)),
             ),
           ),
         ),
@@ -769,3 +771,5 @@ class _SettingPageWidgetState extends State<SettingPageWidget> {
     );
   }
 }
+
+                 
