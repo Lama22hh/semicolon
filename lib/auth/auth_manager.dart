@@ -72,3 +72,4 @@ mixin MicrosoftSignInManager on AuthManager {
 mixin GithubSignInManager on AuthManager {
   Future<BaseAuthUser?> signInWithGithub(BuildContext context);
 }
+
