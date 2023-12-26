@@ -42,4 +42,3 @@ class AddTopicModel extends FlutterFlowModel<AddTopicWidget> {
 
   /// Additional helper methods are added here.
 }
-
