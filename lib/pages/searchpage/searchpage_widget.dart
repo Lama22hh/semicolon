@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
-
 import 'searchpage_model.dart';
 export 'searchpage_model.dart';
 
@@ -19,8 +18,7 @@ class SearchpageWidget extends StatefulWidget {
   _SearchpageWidgetState createState() => _SearchpageWidgetState();
 }
 
-class _SearchpageWidgetState extends State<SearchpageWidget>
-    with TickerProviderStateMixin {
+class _SearchpageWidgetState extends State<SearchpageWidget> {
   late SearchpageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -32,12 +30,6 @@ class _SearchpageWidgetState extends State<SearchpageWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    _model.tabBarController = TabController(
-      vsync: this,
-      length: 3,
-      initialIndex: 0,
-    )..addListener(() => setState(() {}));
   }
 
   @override
@@ -68,72 +60,32 @@ class _SearchpageWidgetState extends State<SearchpageWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(120),
+          preferredSize: Size.fromHeight(120.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).customColor1,
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                            child: FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30,
-                              borderWidth: 1,
-                              buttonSize: 50,
-                              icon: Icon(
-                                Icons.arrow_back_rounded,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onPressed: () async {
-                                context.pop();
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'mforgm7c' /* Back */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '47us2nuw' /* البحث */,
+                          'oj9bezgb' /* البحث */,
                         ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
                               fontFamily: 'Outfit',
                               color: Colors.white,
-                              fontSize: 22,
+                              fontSize: 22.0,
                             ),
                       ),
                     ),
@@ -143,681 +95,420 @@ class _SearchpageWidgetState extends State<SearchpageWidget>
               centerTitle: true,
               expandedTitleScale: 1.0,
             ),
-            elevation: 2,
+            elevation: 2.0,
           ),
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                await queryContentRecordOnce()
-                                    .then(
-                                      (records) => _model
-                                          .simpleSearchResults = TextSearch(
-                                        records
-                                            .map(
-                                              (record) =>
-                                                  TextSearchItem.fromTerms(
-                                                      record, [
-                                                record.title!,
-                                                record.link!
-                                              ]),
-                                            )
-                                            .toList(),
-                                      )
-                                          .search(_model.textController.text)
-                                          .map((r) => r.object)
-                                          .toList(),
-                                    )
-                                    .onError((_, __) =>
-                                        _model.simpleSearchResults = [])
-                                    .whenComplete(() => setState(() {}));
-
-                                setState(() {
-                                  _model.serachactive = true;
-                                });
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'w9x2z34a' /*  */,
-                              ),
-                              icon: Icon(
-                                Icons.search_sharp,
-                                size: 15,
-                              ),
-                              options: FFButtonOptions(
-                                height: 40,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                color:
-                                    FlutterFlowTheme.of(context).customColor1,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Colors.white,
-                                    ),
-                                elevation: 3,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                              child: Container(
-                                width: 300,
-                                child: TextFormField(
-                                  controller: _model.textController,
-                                  focusNode: _model.textFieldFocusNode,
-                                  autofocus: true,
-                                  textCapitalization: TextCapitalization.none,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.black,
-                                        ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.black,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFF0776B3),
-                                        width: 2.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.black,
-                                        width: 2.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Colors.black,
-                                      ),
-                                  textAlign: TextAlign.end,
-                                  keyboardType: TextInputType.name,
-                                  validator: _model.textControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                          ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 80.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                      ].addToStart(SizedBox(height: 10)),
-                    ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    await queryContentRecordOnce()
+                                        .then(
+                                          (records) => _model
+                                              .simpleSearchResults = TextSearch(
+                                            records
+                                                .map(
+                                                  (record) =>
+                                                      TextSearchItem.fromTerms(
+                                                          record, [
+                                                    record.title!,
+                                                    record.typeOfContent!
+                                                  ]),
+                                                )
+                                                .toList(),
+                                          )
+                                              .search(
+                                                  _model.textController.text)
+                                              .map((r) => r.object)
+                                              .toList(),
+                                        )
+                                        .onError((_, __) =>
+                                            _model.simpleSearchResults = [])
+                                        .whenComplete(() => setState(() {}));
+
+                                    setState(() {
+                                      _model.serachactive = true;
+                                    });
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'w9x2z34a' /*  */,
+                                  ),
+                                  icon: Icon(
+                                    Icons.search_sharp,
+                                    size: 15.0,
+                                  ),
+                                  options: FFButtonOptions(
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .customColor1,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  child: Container(
+                                    width: 300.0,
+                                    child: TextFormField(
+                                      controller: _model.textController,
+                                      focusNode: _model.textFieldFocusNode,
+                                      autofocus: true,
+                                      textCapitalization:
+                                          TextCapitalization.none,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0xFF0776B3),
+                                            width: 2.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Colors.black,
+                                            width: 2.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: Colors.black,
+                                          ),
+                                      textAlign: TextAlign.end,
+                                      keyboardType: TextInputType.name,
+                                      validator: _model.textControllerValidator
+                                          .asValidator(context),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ].addToStart(SizedBox(height: 10.0)),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment(0, 0),
-                      child: TabBar(
-                        labelColor: FlutterFlowTheme.of(context).primaryText,
-                        unselectedLabelColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                        labelStyle: FlutterFlowTheme.of(context).titleMedium,
-                        unselectedLabelStyle: TextStyle(),
-                        indicatorColor: FlutterFlowTheme.of(context).primary,
-                        padding: EdgeInsets.all(4),
-                        tabs: [
-                          Tab(
-                            text: FFLocalizations.of(context).getText(
-                              'bkblqdum' /* مقالات  */,
-                            ),
-                          ),
-                          Tab(
-                            text: FFLocalizations.of(context).getText(
-                              'ffg9bamj' /* مقاطع مرئية */,
-                            ),
-                          ),
-                          Tab(
-                            text: FFLocalizations.of(context).getText(
-                              '7b1wh8oa' /* واجبات */,
-                            ),
-                          ),
-                        ],
-                        controller: _model.tabBarController,
-                      ),
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        controller: _model.tabBarController,
-                        children: [
-                          SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                if (!_model.serachactive)
-                                  StreamBuilder<List<ContentRecord>>(
-                                    stream: queryContentRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50,
-                                            height: 50,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ContentRecord>
-                                          listViewContentRecordList =
-                                          snapshot.data!;
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewContentRecordList.length,
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewContentRecord =
-                                              listViewContentRecordList[
-                                                  listViewIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  listViewContentRecord.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                if (_model.serachactive)
-                                  Builder(
-                                    builder: (context) {
-                                      final searchresults =
-                                          _model.simpleSearchResults.toList();
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: searchresults.length,
-                                        itemBuilder:
-                                            (context, searchresultsIndex) {
-                                          final searchresultsItem =
-                                              searchresults[searchresultsIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  searchresultsItem.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                              ],
-                            ),
-                          ),
-                          SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                if (!_model.serachactive)
-                                  StreamBuilder<List<ContentRecord>>(
-                                    stream: queryContentRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50,
-                                            height: 50,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ContentRecord>
-                                          listViewContentRecordList =
-                                          snapshot.data!;
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewContentRecordList.length,
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewContentRecord =
-                                              listViewContentRecordList[
-                                                  listViewIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  listViewContentRecord.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                if (_model.serachactive)
-                                  Builder(
-                                    builder: (context) {
-                                      final searchresults =
-                                          _model.simpleSearchResults.toList();
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: searchresults.length,
-                                        itemBuilder:
-                                            (context, searchresultsIndex) {
-                                          final searchresultsItem =
-                                              searchresults[searchresultsIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  searchresultsItem.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                              ],
-                            ),
-                          ),
-                          SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                if (!_model.serachactive)
-                                  StreamBuilder<List<ContentRecord>>(
-                                    stream: queryContentRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50,
-                                            height: 50,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ContentRecord>
-                                          listViewContentRecordList =
-                                          snapshot.data!;
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewContentRecordList.length,
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewContentRecord =
-                                              listViewContentRecordList[
-                                                  listViewIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  listViewContentRecord.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                if (_model.serachactive)
-                                  Builder(
-                                    builder: (context) {
-                                      final searchresults =
-                                          _model.simpleSearchResults.toList();
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: searchresults.length,
-                                        itemBuilder:
-                                            (context, searchresultsIndex) {
-                                          final searchresultsItem =
-                                              searchresults[searchresultsIndex];
-                                          return Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            elevation: 4,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  borderRadius: 20,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .customColor2,
-                                                  icon: Icon(
-                                                    Icons.arrow_back,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 24,
-                                                  ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
-                                                ),
-                                                Text(
-                                                  searchresultsItem.title,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
                 ),
-              ),
-            ],
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      if (!_model.serachactive)
+                        StreamBuilder<List<ContentRecord>>(
+                          stream: queryContentRecord(),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<ContentRecord> listViewContentRecordList =
+                                snapshot.data!;
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: listViewContentRecordList.length,
+                              itemBuilder: (context, listViewIndex) {
+                                final listViewContentRecord =
+                                    listViewContentRecordList[listViewIndex];
+                                return Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .customColor2,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .customColor2,
+                                        icon: Icon(
+                                          Icons.arrow_back,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          if (listViewContentRecord
+                                                  .typeOfContent ==
+                                              'video') {
+                                            context.pushNamed(
+                                              'VideoPage',
+                                              queryParameters: {
+                                                'video': serializeParam(
+                                                  listViewContentRecord.ifVideo,
+                                                  ParamType.String,
+                                                ),
+                                                'lessonsName': serializeParam(
+                                                  listViewContentRecord
+                                                      .nameOfLesson,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            if (listViewContentRecord
+                                                    .typeOfContent ==
+                                                'article') {
+                                              context.pushNamed(
+                                                'ArticlesPage',
+                                                queryParameters: {
+                                                  'artical': serializeParam(
+                                                    listViewContentRecord.link,
+                                                    ParamType.String,
+                                                  ),
+                                                  'lessonsName': serializeParam(
+                                                    listViewContentRecord
+                                                        .nameOfLesson,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else {
+                                              context.pushNamed(
+                                                'AssignmentPage',
+                                                queryParameters: {
+                                                  'assignment': serializeParam(
+                                                    listViewContentRecord.link,
+                                                    ParamType.String,
+                                                  ),
+                                                  'lessonsName': serializeParam(
+                                                    listViewContentRecord
+                                                        .nameOfLesson,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            }
+                                          }
+                                        },
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          listViewContentRecord.title,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      if (_model.serachactive)
+                        Builder(
+                          builder: (context) {
+                            final searchresults =
+                                _model.simpleSearchResults.toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: searchresults.length,
+                              itemBuilder: (context, searchresultsIndex) {
+                                final searchresultsItem =
+                                    searchresults[searchresultsIndex];
+                                return Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 4.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .customColor2,
+                                        borderRadius: 20.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 40.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .customColor2,
+                                        icon: Icon(
+                                          Icons.arrow_back,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          if (searchresultsItem.typeOfContent ==
+                                              'video') {
+                                            context.pushNamed(
+                                              'VideoPage',
+                                              queryParameters: {
+                                                'video': serializeParam(
+                                                  searchresultsItem.ifVideo,
+                                                  ParamType.String,
+                                                ),
+                                                'lessonsName': serializeParam(
+                                                  searchresultsItem
+                                                      .nameOfLesson,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            if (searchresultsItem
+                                                    .typeOfContent ==
+                                                'article') {
+                                              context.pushNamed(
+                                                'ArticlesPage',
+                                                queryParameters: {
+                                                  'artical': serializeParam(
+                                                    searchresultsItem.link,
+                                                    ParamType.String,
+                                                  ),
+                                                  'lessonsName': serializeParam(
+                                                    searchresultsItem
+                                                        .nameOfLesson,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else {
+                                              context.pushNamed(
+                                                'AssignmentPage',
+                                                queryParameters: {
+                                                  'assignment': serializeParam(
+                                                    searchresultsItem.link,
+                                                    ParamType.String,
+                                                  ),
+                                                  'lessonsName': serializeParam(
+                                                    searchresultsItem
+                                                        .nameOfLesson,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            }
+                                          }
+                                        },
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          searchresultsItem.title,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        ),
+                    ]
+                        .addToStart(SizedBox(height: 10.0))
+                        .addToEnd(SizedBox(height: 300.0)),
+                  ),
+                ),
+              ]
+                  .addToStart(SizedBox(height: 10.0))
+                  .addToEnd(SizedBox(height: 300.0)),
+            ),
           ),
         ),
       ),
