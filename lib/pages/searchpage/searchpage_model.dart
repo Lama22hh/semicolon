@@ -23,10 +23,6 @@ class SearchpageModel extends FlutterFlowModel<SearchpageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for TabBar widget.
-  TabController? tabBarController;
-  int get tabBarCurrentIndex =>
-      tabBarController != null ? tabBarController!.index : 0;
 
   /// Initialization and disposal methods.
 
@@ -36,8 +32,6 @@ class SearchpageModel extends FlutterFlowModel<SearchpageWidget> {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
-
-    tabBarController?.dispose();
   }
 
   /// Action blocks are added here.
