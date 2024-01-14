@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/quize_widget_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,10 +8,12 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'content_page_model.dart';
 export 'content_page_model.dart';
 
@@ -77,37 +80,36 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(116.0),
+            preferredSize: Size.fromHeight(116),
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).customColor1,
               automaticallyImplyLeading: false,
               actions: [],
               flexibleSpace: FlexibleSpaceBar(
                 title: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 14),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 50.0,
+                                borderRadius: 30,
+                                borderWidth: 1,
+                                buttonSize: 50,
                                 icon: Icon(
                                   Icons.arrow_back_rounded,
                                   color: Colors.white,
-                                  size: 30.0,
+                                  size: 30,
                                 ),
                                 onPressed: () async {
                                   context.pop();
@@ -115,8 +117,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'i2mffsp2' /* Back */,
@@ -126,7 +128,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                     .override(
                                       fontFamily: 'Outfit',
                                       color: Colors.white,
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                     ),
                               ),
                             ),
@@ -134,8 +136,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                         child: Text(
                           valueOrDefault<String>(
                             widget.nameOfLesson,
@@ -146,7 +147,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                               .override(
                                 fontFamily: 'Outfit',
                                 color: Colors.white,
-                                fontSize: 22.0,
+                                fontSize: 22,
                               ),
                         ),
                       ),
@@ -156,7 +157,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                 centerTitle: true,
                 expandedTitleScale: 1.0,
               ),
-              elevation: 2.0,
+              elevation: 2,
             ),
           ),
           body: SafeArea(
@@ -168,7 +169,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                   child: Column(
                     children: [
                       Align(
-                        alignment: Alignment(0.0, 0),
+                        alignment: Alignment(0, 0),
                         child: TabBar(
                           isScrollable: true,
                           labelColor: FlutterFlowTheme.of(context).primaryText,
@@ -178,8 +179,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                           unselectedLabelStyle: TextStyle(),
                           indicatorColor:
                               FlutterFlowTheme.of(context).customColor1,
-                          indicatorWeight: 3.0,
-                          padding: EdgeInsets.all(4.0),
+                          indicatorWeight: 3,
+                          padding: EdgeInsets.all(4),
                           tabs: [
                             Tab(
                               text: FFLocalizations.of(context).getText(
@@ -203,6 +204,14 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                             ),
                           ],
                           controller: _model.tabBarController,
+                          onTap: (i) async {
+                            [
+                              () async {},
+                              () async {},
+                              () async {},
+                              () async {}
+                            ][i]();
+                          },
                         ),
                       ),
                       Expanded(
@@ -231,8 +240,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -252,49 +261,161 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                     columnContentRecordList.isNotEmpty
                                         ? columnContentRecordList.first
                                         : null;
-                                return Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowWebView(
-                                      content: columnContentRecord!.link,
-                                      bypass: true,
-                                      width: 390.0,
-                                      height: 550.0,
-                                      verticalScroll: true,
-                                      horizontalScroll: true,
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'aezcfwi1' /* تم */,
+                                return SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowWebView(
+                                        content: columnContentRecord!.link,
+                                        bypass: true,
+                                        width: 390,
+                                        height: 480,
+                                        verticalScroll: true,
+                                        horizontalScroll: true,
                                       ),
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Colors.white,
+                                      if ((currentUserDocument?.recordArticle
+                                                      ?.toList() ??
+                                                  [])
+                                              .contains(widget.nameOfLesson) ==
+                                          false)
+                                        AuthUserStreamWidget(
+                                          builder: (context) => FFButtonWidget(
+                                            onPressed: () async {
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'points':
+                                                        FieldValue.increment(
+                                                            10),
+                                                  },
+                                                ),
+                                              });
+                                              if (widget.nameOfCourse ==
+                                                  'java1') {
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'progress_java1':
+                                                          FieldValue.increment(
+                                                              0.0415),
+                                                    },
+                                                  ),
+                                                });
+
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'record_article':
+                                                          FieldValue
+                                                              .arrayUnion([
+                                                        widget.nameOfLesson
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              } else {
+                                                if (widget.nameOfCourse ==
+                                                    'java2') {
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'progress_java2':
+                                                            FieldValue
+                                                                .increment(
+                                                                    0.028),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'record_article':
+                                                            FieldValue
+                                                                .arrayUnion([
+                                                          widget.nameOfLesson
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+                                                } else {
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'progress_dataS':
+                                                            FieldValue
+                                                                .increment(
+                                                                    0.028),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'record_article':
+                                                            FieldValue
+                                                                .arrayUnion([
+                                                          widget.nameOfLesson
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+                                                }
+                                              }
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'aezcfwi1' /* تم */,
                                             ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                            options: FFButtonOptions(
+                                              height: 40,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(24, 0, 24, 0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .customColor1,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color: Colors.white,
+                                                      ),
+                                              elevation: 3,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                          ),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                      AuthUserStreamWidget(
+                                        builder: (context) => Text(
+                                          (currentUserDocument?.recordArticle
+                                                          ?.toList() ??
+                                                      [])
+                                                  .contains(widget.nameOfLesson)
+                                              ? 'قد اكملت هذا الدرس '
+                                              : 'لم تكمل الدرس بعد ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
                                       ),
-                                    ),
-                                  ].divide(SizedBox(height: 10.0)),
+                                    ].divide(SizedBox(height: 30)),
+                                  ),
                                 );
                               },
                             ),
@@ -320,8 +441,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -349,7 +470,141 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                       showFullScreen: true,
                                       strictRelatedVideos: false,
                                     ),
-                                  ],
+                                    if ((currentUserDocument?.recordVideo
+                                                    ?.toList() ??
+                                                [])
+                                            .contains(widget.nameOfLesson) ==
+                                        false)
+                                      AuthUserStreamWidget(
+                                        builder: (context) => FFButtonWidget(
+                                          onPressed: () async {
+                                            await currentUserReference!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'points':
+                                                      FieldValue.increment(10),
+                                                },
+                                              ),
+                                            });
+                                            if (widget.nameOfCourse ==
+                                                'java1') {
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'progress_java1':
+                                                        FieldValue.increment(
+                                                            0.0415),
+                                                  },
+                                                ),
+                                              });
+
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'record_video':
+                                                        FieldValue.arrayUnion([
+                                                      widget.nameOfLesson
+                                                    ]),
+                                                  },
+                                                ),
+                                              });
+                                            } else {
+                                              if (widget.nameOfCourse ==
+                                                  'java2') {
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'progress_java2':
+                                                          FieldValue.increment(
+                                                              0.028),
+                                                    },
+                                                  ),
+                                                });
+
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'record_video': FieldValue
+                                                          .arrayUnion([
+                                                        widget.nameOfLesson
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              } else {
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'progress_dataS':
+                                                          FieldValue.increment(
+                                                              0.028),
+                                                    },
+                                                  ),
+                                                });
+
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'record_video': FieldValue
+                                                          .arrayUnion([
+                                                        widget.nameOfLesson
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              }
+                                            }
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'q9vql00i' /* تم */,
+                                          ),
+                                          options: FFButtonOptions(
+                                            height: 40,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24, 0, 24, 0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .customColor1,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Colors.white,
+                                                    ),
+                                            elevation: 3,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                        ),
+                                      ),
+                                    AuthUserStreamWidget(
+                                      builder: (context) => Text(
+                                        (currentUserDocument?.recordVideo
+                                                        ?.toList() ??
+                                                    [])
+                                                .contains(widget.nameOfLesson)
+                                            ? 'قد اكملت هذا الدرس '
+                                            : 'لم تكمل الدرس بعد ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                  ].divide(SizedBox(height: 30)),
                                 );
                               },
                             ),
@@ -375,8 +630,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -404,13 +659,13 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                       children: [
                                         Container(
                                           width: double.infinity,
-                                          height: 150.0,
+                                          height: 150,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFE9F8FF),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 1.0),
+                                                AlignmentDirectional(0, 1),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -422,7 +677,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                            0, 0),
                                                     child: AutoSizeText(
                                                       valueOrDefault<String>(
                                                         columnContentRecord
@@ -439,11 +694,11 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                             fontFamily:
                                                                 'Readex Pro',
                                                             color: Colors.black,
-                                                            fontSize: 14.0,
+                                                            fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
-                                                      minFontSize: 8.0,
+                                                      minFontSize: 8,
                                                     ),
                                                   ),
                                                 ),
@@ -453,7 +708,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                         ),
                                         Container(
                                           width: double.infinity,
-                                          height: 200.0,
+                                          height: 200,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFE9F8FF),
                                           ),
@@ -465,8 +720,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, -1),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -480,7 +735,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                         fontFamily:
                                                             'Readex Pro',
                                                         color: Colors.black,
-                                                        fontSize: 20.0,
+                                                        fontSize: 20,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -490,7 +745,7 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          1.0, 0.0),
+                                                          1, 0),
                                                   child: Container(
                                                     width: double.infinity,
                                                     child: TextFormField(
@@ -525,12 +780,11 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .alternate,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         focusedBorder:
                                                             UnderlineInputBorder(
@@ -539,12 +793,11 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         errorBorder:
                                                             UnderlineInputBorder(
@@ -553,12 +806,11 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                         focusedErrorBorder:
                                                             UnderlineInputBorder(
@@ -567,12 +819,11 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 2.0,
+                                                            width: 2,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      8.0),
+                                                                  .circular(8),
                                                         ),
                                                       ),
                                                       style:
@@ -590,58 +841,161 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                 ),
                                               ),
                                             ]
-                                                .addToStart(
-                                                    SizedBox(width: 50.0))
-                                                .addToEnd(
-                                                    SizedBox(width: 50.0)),
+                                                .addToStart(SizedBox(width: 50))
+                                                .addToEnd(SizedBox(width: 50)),
                                           ),
                                         ),
-                                        Container(
-                                          width: 144.0,
-                                          height: 76.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              '7hj9hjmy' /* تسليم */,
-                                            ),
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF0776B3),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color: Colors.white,
+                                        if ((currentUserDocument
+                                                        ?.recordAssignement
+                                                        ?.toList() ??
+                                                    [])
+                                                .contains(
+                                                    widget.nameOfLesson) ==
+                                            false)
+                                          AuthUserStreamWidget(
+                                            builder: (context) =>
+                                                FFButtonWidget(
+                                              onPressed: () async {
+                                                await currentUserReference!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'points':
+                                                          FieldValue.increment(
+                                                              10),
+                                                    },
+                                                  ),
+                                                });
+                                                if (widget.nameOfCourse ==
+                                                    'java1') {
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'progress_java1':
+                                                            FieldValue
+                                                                .increment(
+                                                                    0.0415),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'record_assignement':
+                                                            FieldValue
+                                                                .arrayUnion([
+                                                          widget.nameOfLesson
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+                                                } else {
+                                                  if (widget.nameOfCourse ==
+                                                      'java2') {
+                                                    await currentUserReference!
+                                                        .update({
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'progress_java2':
+                                                              FieldValue
+                                                                  .increment(
+                                                                      0.028),
+                                                        },
                                                       ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
+                                                    });
+
+                                                    await currentUserReference!
+                                                        .update({
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'record_assignement':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            widget.nameOfLesson
+                                                          ]),
+                                                        },
+                                                      ),
+                                                    });
+                                                  } else {
+                                                    await currentUserReference!
+                                                        .update({
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'progress_dataS':
+                                                              FieldValue
+                                                                  .increment(
+                                                                      0.028),
+                                                        },
+                                                      ),
+                                                    });
+
+                                                    await currentUserReference!
+                                                        .update({
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'record_assignement':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            widget.nameOfLesson
+                                                          ]),
+                                                        },
+                                                      ),
+                                                    });
+                                                  }
+                                                }
+                                              },
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                't34yhci7' /* تسليم */,
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              options: FFButtonOptions(
+                                                height: 40,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 0, 0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(0, 0, 0, 0),
+                                                color: Color(0xFF0776B3),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                        ),
+                                                elevation: 3,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
                                             ),
                                           ),
+                                        AuthUserStreamWidget(
+                                          builder: (context) => Text(
+                                            (currentUserDocument
+                                                            ?.recordAssignement
+                                                            ?.toList() ??
+                                                        [])
+                                                    .contains(
+                                                        widget.nameOfLesson)
+                                                ? 'قد اكملت هذا الدرس '
+                                                : 'لم تكمل الدرس بعد ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
                                         ),
-                                      ].divide(SizedBox(height: 40.0)),
+                                      ].divide(SizedBox(height: 30)),
                                     ),
                                   ]
-                                      .divide(SizedBox(height: 40.0))
-                                      .addToStart(SizedBox(height: 90.0)),
+                                      .divide(SizedBox(height: 40))
+                                      .addToStart(SizedBox(height: 30)),
                                 );
                               },
                             ),
@@ -668,8 +1022,8 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
+                                                  width: 50,
+                                                  height: 50,
                                                   child:
                                                       CircularProgressIndicator(
                                                     valueColor:
@@ -715,38 +1069,112 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                           },
                                         ),
                                       ]
-                                          .addToStart(SizedBox(height: 10.0))
-                                          .addToEnd(SizedBox(height: 10.0)),
+                                          .addToStart(SizedBox(height: 10))
+                                          .addToEnd(SizedBox(height: 10)),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                  if ((currentUserDocument?.recordQuizez
+                                                  ?.toList() ??
+                                              [])
+                                          .contains(widget.nameOfLesson) ==
+                                      false)
+                                    AuthUserStreamWidget(
+                                      builder: (context) => FFButtonWidget(
+                                        onPressed: () async {
+                                          await currentUserReference!.update({
+                                            ...mapToFirestore(
+                                              {
+                                                'points':
+                                                    FieldValue.increment(10),
+                                              },
+                                            ),
+                                          });
+                                          if (widget.nameOfCourse == 'java1') {
+                                            await currentUserReference!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'progress_java1':
+                                                      FieldValue.increment(
+                                                          0.0415),
+                                                },
+                                              ),
+                                            });
+
+                                            await currentUserReference!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'record_quizez':
+                                                      FieldValue.arrayUnion([
+                                                    widget.nameOfLesson
+                                                  ]),
+                                                },
+                                              ),
+                                            });
+                                          } else {
+                                            if (widget.nameOfCourse ==
+                                                'java2') {
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'progress_java2':
+                                                        FieldValue.increment(
+                                                            0.028),
+                                                  },
+                                                ),
+                                              });
+
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'record_quizez':
+                                                        FieldValue.arrayUnion([
+                                                      widget.nameOfLesson
+                                                    ]),
+                                                  },
+                                                ),
+                                              });
+                                            } else {
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'progress_dataS':
+                                                        FieldValue.increment(
+                                                            0.028),
+                                                  },
+                                                ),
+                                              });
+
+                                              await currentUserReference!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'record_quizez':
+                                                        FieldValue.arrayUnion([
+                                                      widget.nameOfLesson
+                                                    ]),
+                                                  },
+                                                ),
+                                              });
+                                            }
+                                          }
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'w55u4q2d' /* تسليم  */,
+                                          '1j9xia2h' /* تم */,
                                         ),
                                         options: FFButtonOptions(
-                                          height: 40.0,
+                                          height: 40,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
+                                                  24, 0, 24, 0),
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
+                                                  0, 0, 0, 0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .customColor1,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -754,15 +1182,26 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.white,
                                                   ),
-                                          elevation: 3.0,
+                                          elevation: 3,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8.0),
+                                              BorderRadius.circular(8),
                                         ),
                                       ),
+                                    ),
+                                  AuthUserStreamWidget(
+                                    builder: (context) => Text(
+                                      (currentUserDocument?.recordQuizez
+                                                      ?.toList() ??
+                                                  [])
+                                              .contains(widget.nameOfLesson)
+                                          ? 'قد اكملت هذا الدرس '
+                                          : 'لم تكمل الدرس بعد ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
                                   ),
                                 ],
@@ -782,4 +1221,3 @@ class _ContentPageWidgetState extends State<ContentPageWidget>
     );
   }
 }
-
