@@ -1,6 +1,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Lama22hh_semicolon&metric=alert_status)]
 (https://sonarcloud.io/summary/new_code?id=Lama22hh_semicolon)
-[![CodeFactor]](https://www.codefactor.io/repository/github/lama22hh/semicolon)
 # semcolom
 
 A new Flutter project.
